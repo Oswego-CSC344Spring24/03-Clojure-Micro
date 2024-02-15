@@ -1,4 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/x4bLE45X)
 # Clojure Microproject
 
 Write one or more Clojure function(s) to symbolically convert logical expressions using the and, or, and not connectives to expressions using only nor. To do this, use a Lisp-style prefix notation to represent the logical expressions as unevaluated lists, allowing for a single argument for the not connective, and two or more arguments for the and and or connectives. In this microproject you do not need to worry about recursive cases (i.e., nested logical expressions), though you will need to for the main project. To perform the symbolic conversion you must have your program deconstruct the input lists and build new lists to output. A sample of the conversions for you to generalize from are provided below.

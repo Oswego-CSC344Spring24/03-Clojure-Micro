@@ -1,5 +1,27 @@
 (ns clojuremicro.core)
 
+(defn convert-not [expr]
+  (if (= (first expr) 'not)
+    (list 'nor (second expr))
+    expr))
+
+
+(defn convert-or [expr]
+  (if (= (first expr) 'or)
+    (cons 'nor (list (rest expr)))
+    expr))
+
+(defn convert-and [expr]
+  (if (= (first expr) 'and)
+    (cons 'nor (map (fn [e] (list 'nor e)) (rest expr)))
+    expr))
+
+(defn nor-convert [expr]
+  (cond
+    (= (first expr) 'not) (convert-not expr)
+    (= (first expr) 'or)  (convert-or expr)
+    (= (first expr) 'and) (convert-and expr)
+    :else expr)) 
 
 
 

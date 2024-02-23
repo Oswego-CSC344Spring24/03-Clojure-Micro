@@ -1,5 +1,12 @@
 (ns clojuremicro.core)
 
+(defn nor-convert [expr]
+  (cond
+    (nil? expr) nil
+    (not (seq? expr)) expr
+    (= (first expr) 'not) `(nor ,(nor-convert (second expr)))
+    (= (first expr) 'and) `(nor ~@(map #(nor-convert %) (rest expr)))
+    (= (first expr) 'or) `(nor ~(apply nor-convert (rest expr)))))
 
 
 

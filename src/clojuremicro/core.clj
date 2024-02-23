@@ -1,33 +1,13 @@
-(ns clojuremicro.core)
-
-(defn convert-not [expr]
-  (if (= (first expr) 'not)
-    (list 'nor (second expr))
-    expr))
-
-
-(defn convert-or [expr]
-  (if (= (first expr) 'or)
-    (cons 'nor (list (rest expr)))
-    expr))
-
-(defn convert-and [expr]
-  (if (= (first expr) 'and)
-    (cons 'nor (map (fn [e] (list 'nor e)) (rest expr)))
-    expr))
-
+(ns user)
+; Define the nor-convert function
 (defn nor-convert [expr]
-  (cond
-    (= (first expr) 'not) (convert-not expr)
-    (= (first expr) 'or)  (convert-or expr)
-    (= (first expr) 'and) (convert-and expr)
-    :else expr)) 
+  "Converts an expression to a NOR-based expression."
+  (let [op (first expr)
+        args (rest expr)]
+    (cond
+      (= op 'not) ['nor (first args)]  ; Convert NOT directly to NOR
+      (= op 'or)  (cons 'nor args)     ; Convert OR to NOR by just changing the operator
+      (= op 'and) ; Convert AND to a sequence of NORs
+      (cons 'nor (map #(list 'nor %) args))
+      :else expr))) ; Return the expression unchanged if it does not start with not, and, or or
 
-
-
-;; define the function nor-convert
-;;A sample REPL interaction with your program might look like the following
-;;a2=> (def e1 '(and x y true))
-;;#'user/e1
-;;a2=> (nor-convert e1)
-;;(nor (nor x) (nor y) (nor true))

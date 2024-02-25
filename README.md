@@ -25,6 +25,7 @@ In order to ease your implementation, I recommend, but do not require, following
 # A Sample REPL 
 A sample REPL interaction with your program might look like the following:
 
+
 `a2=> (def e1 '(and x y true))`<br />
 `#'user/e1`<br />
 `a2=> (nor-convert e1)`<br />

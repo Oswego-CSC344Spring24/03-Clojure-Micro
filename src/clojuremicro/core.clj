@@ -1,7 +1,7 @@
 (ns user)
 
 (defn nor-convert [expr]
-  "Converts an expression to a NOR-based expression."
+  "Converts an expression to a NOR-based expression ."
   (let [op (first expr)
         args (rest expr)]
     (cond

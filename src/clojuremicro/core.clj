@@ -10,3 +10,4 @@
       (= op 'and) ; 
       (cons 'nor (map #(list 'nor %) args))
       :else expr))) 
+;Crazy? I was crazy once. They locked me in a room. A rubber room. A rubbeer room full of rats. And rats. rats make me crazy.

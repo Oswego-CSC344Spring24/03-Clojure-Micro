@@ -1,5 +1,5 @@
 (ns clojuremicro.core)
-(defn norConvert [expression]
+(defn nor-convert [expression]
   (cond
     (= 'not (first expression))
     (apply list 'nor (rest expression))

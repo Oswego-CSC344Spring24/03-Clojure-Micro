@@ -1,4 +1,4 @@
-(ns user)
+(ns clojuremicro.core)
 
 (defn not-to-nor [expr]
   (if (= (first expr) 'not)
@@ -7,7 +7,7 @@
 
 (defn or-to-nor [expr]
   (if (= (first expr) 'or)
-    (list 'nor (conj (list 'nor) (rest expr))) ; Modified to nest correctly
+    (cons 'nor (rest expr)) 
     (throw (IllegalArgumentException. "Expected an or expression"))))
 
 (defn and-to-nor [expr]

@@ -2,12 +2,12 @@
 
 (defn not-to-nor [expr]
   (if (= (first expr) 'not)
-    (list 'nor (second expr)) 
+    (list 'nor (second expr))
     (throw (IllegalArgumentException. "Expected a not expression"))))
 
 (defn or-to-nor [expr]
   (if (= (first expr) 'or)
-    (cons 'nor (rest expr)) 
+    (list 'nor (cons 'nor (rest expr)))
     (throw (IllegalArgumentException. "Expected an or expression"))))
 
 (defn and-to-nor [expr]

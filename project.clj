@@ -1,4 +1,4 @@
-(defn norConvert [expression]
+(defn norConvert [expression] 
   (cond
     (= 'not (first expression))
     (apply list 'nor (rest expression))
@@ -8,6 +8,6 @@
 
     (= 'or (first expression))
     (list 'nor (apply list 'nor (rest expression)))
-
+;;comment for push
     :else expression)
   )

@@ -1,7 +1,7 @@
 (ns clojuremicro.core-test
   (:require [clojure.test :refer :all]
             [clojuremicro.core :refer :all]))
-
+ 
 (deftest testnot
   (testing "test for not."
     (is (= (nor-convert '(not a))  '(nor a)))))
